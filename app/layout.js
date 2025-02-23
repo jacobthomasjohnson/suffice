@@ -4,30 +4,25 @@ import "./globals.css";
 
 import { Nav } from "./components/Nav";
 import Image from "next/image";
-
 import CreatePage from "./components/CreatePage";
-import { useRef, useState } from "react";
-import { useEffect } from "react/cjs/react.production";
+import useStore from "./zustand/store";
 
 export default function RootLayout({ children }) {
-  const createPageButton = useRef(null);
-  const [createPageActive, setCreatePageActive] = useState(false);
+  const createModalOpen = useStore((state) => state.createModalOpen);
+  const setCreateModalOpen = useStore((state) => state.setCreateModalOpen);
   const createPage = () => {
-    setCreatePageActive((prev) => !prev);
+    setCreateModalOpen(!createModalOpen);
   }
-  useEffect(() => {
-    createPageButton.current.active = !createPageActive;
-  }, [createPageActive]);
   return (
     <html lang="en" className="hide-scrollbar">
       <body className="hide-scrollbar">
-        <CreatePage ref={createPageButton} active={false} />
+        <CreatePage />
         <header className="navbar p-14 flex justify-between items-center">
           <div className="logo">
             <img src="/logo-s.png" alt="Suffice" className="h-[30px]" />
           </div>
           <div className="nav flex items-center justify-center">
-            <div className="w-[30px] h-[30px] hover:cursor-pointer flex items-center justify-center rounded-full outline-neutral-300 transition-all duration-100 opacity-90 hover:opacity-100" onClick={createPage}>
+            <div className={`w-[30px] h-[30px] hover:cursor-pointer flex items-center justify-center rounded-full outline-neutral-300 transition-all duration-75 opacity-90 hover:opacity-100 ${createModalOpen ? 'rotate-45' : 'rotate-0'}`} onClick={createPage}>
               <Image
                 src="/icon-add.svg"
                 alt="notification"
