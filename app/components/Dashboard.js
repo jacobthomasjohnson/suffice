@@ -1,37 +1,4 @@
-"use client";
-
-import { PageButton } from "./components/ui/pagebutton";
-import { Button } from "./components/ui/button";
-import pageData from "./api/data/pageData";
-import recentActivity from "./api/data/recentActivity";
-import RecentActivity from "./components/ui/RecentActivity";
-import { useRef, useState, useEffect } from "react";
-
 export const Dashboard = () => {
-  const recentActivityExpand = useRef(null);
-  const [recentActivityExpanded, setRecentActivityExpanded] = useState(false);
-  const [recentActivityHeight, setRecentActivityHeight] = useState(0);
-
-  useEffect(() => {
-    if (recentActivityExpand.current) {
-      setRecentActivityHeight(recentActivityExpand.current.scrollHeight);
-    }
-  }, [recentActivityExpanded]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (recentActivityExpanded) {
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: "smooth",
-        });
-      }
-    }, 200);
-  }, [recentActivityExpanded]);
-
-  const toggleRecentActivity = () => {
-    setRecentActivityExpanded((prev) => !prev);
-  };
   return (
     <>
       <h1>Welcome back, Jacob!</h1>
@@ -97,5 +64,3 @@ export const Dashboard = () => {
     </>
   );
 };
-
-export default Dashboard;

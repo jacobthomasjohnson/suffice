@@ -1,21 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #181818;
+  --foreground: #f0f0f0;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+}
+
+.nav-item div {
+  @apply opacity-80 transition-all duration-75;
+}
+
+.nav-item div:hover {
+  @apply opacity-100 cursor-pointer translate-x-[2px];
+}
+
+.nav-item div img {
+  width: 12px;
+  height: 12px;
+}
+
+.nav-item div:hover a {
+  @apply text-neutral-100;
+}
+
+.app {
+  @apply flex -mt-6;
+}
+
+.nav-item a {
+  @apply text-neutral-400;
+}
+
+.app a:hover {
+  @apply text-neutral-100;
+}
+
+.primary h1 {
+  @apply text-4xl text-neutral-200 mb-2 font-bold;
+}
+
+.primary h2 {
+  @apply text-2xl text-neutral-400 font-light mt-8 mb-4;
+}
+
+hr {
+  @apply my-2 border-none;
+}
+
+.page-button {
+  @apply transition-all duration-200;
+}
+
+.page-button:hover {
+  @apply border-blue-100
 }
