@@ -77,3 +77,68 @@ hr {
   background: rgb(26, 26, 26);
   border: 1px solid #353535;
 }
+
+.ProseMirror {
+  height: 100%;
+  min-height: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.ProseMirror-focused {
+  outline: none;
+}
+
+.ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  font-style: italic;
+}
+
+.tiptap {
+  font-family: "Inter", sans-serif;
+}
+
+u {
+  text-decoration: underline;
+}
+
+.button-group {
+  @apply flex border border-[#333333] w-full justify-between;
+}
+
+.button-group button {
+  @apply p-6 grow;
+}
+
+.button-group button:hover {
+  @apply bg-[#222222];
+}
+
+.tiptap p {
+  @apply text-neutral-200 my-4;
+}
+
+.tiptap h1 {
+  @apply text-4xl font-semibold my-4;
+}
+
+.tiptap h2 {
+  @apply text-3xl font-semibold my-4;
+}
+
+.tiptap h3 {
+  @apply text-2xl font-semibold my-4;
+}
+
+.tiptap h4 {
+  @apply text-xl font-semibold my-4;
+}
+
+.tiptap h5 {
+  @apply text-4xl font-semibold my-4;
+}
+
+.tiptap {
+  @apply my-8;
+}
