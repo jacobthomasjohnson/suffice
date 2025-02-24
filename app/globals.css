@@ -78,19 +78,11 @@ hr {
   border: 1px solid #353535;
 }
 
-.ProseMirror {
-  height: 100%;
-  min-height: 100%;
-  flex-grow: 1;
-  overflow-y: auto;
-}
-
 .ProseMirror-focused {
   outline: none;
 }
 
 .ProseMirror p.is-empty::before {
-  content: attr(data-placeholder);
   color: #aaa;
   font-style: italic;
 }
@@ -157,4 +149,72 @@ u {
 
 .tiptap {
   @apply my-8;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;  /* Bullet points */
+  margin-left: 1.5em;
+  padding-left: 1.5em;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal !important;
+  margin-left: 1.5em;
+  padding-left: 1.5em;
+}
+
+.ProseMirror li {
+  display: list-item;
+  list-style-position: outside; /* or inside, if you prefer */
+}
+
+.ProseMirror hr {
+  @apply my-4 h-[2px] bg-[#222222];
+}
+
+.control-group button.text-color {
+  @apply border rounded-lg w-[100px] transition-all duration-200;
+}
+
+.control-group button.text-color.isActive {
+  border: 10px solid red;
+}
+
+* {
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* TipTap’s editable area styling */
+.ProseMirror {
+  padding: 0;
+  overflow-y: auto;
+}
+
+/* Optionally, style each block’s text */
+.tiptap p {
+}
+
+.block {
+  @apply  gap-0;
+}
+
+.block-content {
+  margin: 0;
+  padding: 0;
+}
+
+.sortable-item {
+  @apply  m-0 p-0 h-[48px];
 }

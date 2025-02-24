@@ -47,12 +47,6 @@ const MenuBar = () => {
         >
           Code
         </button>
-        <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-          Clear marks
-        </button>
-        <button onClick={() => editor.chain().focus().clearNodes().run()}>
-          Clear nodes
-        </button>
         <button
           onClick={() => editor.chain().focus().setParagraph().run()}
           className={editor.isActive("paragraph") ? "is-active" : ""}
@@ -151,6 +145,12 @@ const MenuBar = () => {
         <button onClick={() => editor.chain().focus().setHardBreak().run()}>
           Hard break
         </button>
+        <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
+          Clear marks
+        </button>
+        <button onClick={() => editor.chain().focus().clearNodes().run()}>
+          Clear nodes
+        </button>
         <button
           onClick={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().chain().focus().undo().run()}
@@ -163,15 +163,72 @@ const MenuBar = () => {
         >
           Redo
         </button>
+      </div>
+      <div className="flex w-full h-12 gap-4 my-4">
         <button
-          onClick={() => editor.chain().focus().setColor("#958DF1").run()}
-          className={
-            editor.isActive("textStyle", { color: "#958DF1" })
-              ? "is-active"
-              : ""
-          }
+          onClick={() => editor.chain().focus().setColor("#96a6ff").run()}
+          className={`
+            text-color
+            ${
+              editor.isActive("textStyle", { color: "#96a6ff" })
+                ? "scale-110"
+                : ""
+            }
+          `}
         >
-          Purple
+          <div className="w-full h-full bg-[#96a6ff]"></div>
+        </button>
+        <button
+          onClick={() => editor.chain().focus().setColor("#f5a7f9").run()}
+          className={`
+            text-color
+            ${
+              editor.isActive("textStyle", { color: "#f5a7f9" })
+                ? "bg-[#f5a7f9]"
+                : ""
+            }
+          `}
+        >
+          <div className="w-full h-full bg-[#f5a7f9]"></div>
+        </button>
+        <button
+          onClick={() => editor.chain().focus().setColor("#b2ebb1").run()}
+          className={`
+            text-color
+            ${
+              editor.isActive("textStyle", { color: "#b2ebb1" })
+                ? "bg-[#b2ebb1]"
+                : ""
+            }
+          `}
+        >
+          <div className="w-full h-full bg-[#b2ebb1]"></div>
+        </button>
+        <button
+          onClick={() => editor.chain().focus().setColor("#f7bc96").run()}
+          className={`
+            text-color
+            ${
+              editor.isActive("textStyle", { color: "#f7bc96" })
+                ? "bg-[#f7bc96]"
+                : ""
+            }
+          `}
+        >
+          <div className="w-full h-full bg-[#f7bc96]"></div>
+        </button>
+        <button
+          onClick={() => editor.chain().focus().setColor("#f1f1f1").run()}
+          className={`
+            text-color
+            ${
+              editor.isActive("textStyle", { color: "#f1f1f1" })
+                ? "bg-[#f1f1f1]"
+                : ""
+            }
+          `}
+        >
+          <div className="w-full h-full bg-[#f1f1f1]"></div>
         </button>
       </div>
     </div>
@@ -197,11 +254,13 @@ const content = ``;
 
 export const Editor = () => {
   return (
-    <EditorProvider
-      slotBefore={<MenuBar />}
-      extensions={extensions}
-      content={content}
-    ></EditorProvider>
+    <div className="grow h-full">
+      <EditorProvider
+        slotBefore={<MenuBar />}
+        extensions={extensions}
+        content={content}
+      ></EditorProvider>
+    </div>
   );
 };
 
