@@ -1,13 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useStore from "../zustand/store";
 import { MenuBar, Editor } from "./Editor";
 
 export const CreatePage = ({ active }) => {
   const createModalOpen = useStore((state) => state.createModalOpen);
-  const [content, setContent] = useState("");
-  const [editor, setEditor] = useState(null); // Store editor instance
+
+  useEffect(() => {
+    if (createModalOpen) {
+      document.body.scrollTop = 0;
+    } else {
+
+    }
+  }, [createModalOpen])
 
   return (
     <div

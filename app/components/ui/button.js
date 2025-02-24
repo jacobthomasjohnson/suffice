@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export const Button = ({ children, icon }) => {
+export const Button = ({ children, icon, onClick }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -11,6 +11,7 @@ export const Button = ({ children, icon }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="p-4 relative overflow-hidden border transition-all duration-300 border-neutral-700 rounded-md hover:bg-neutral-900 hover:border-blue-100"
+      onClick={onClick}
     >
       {/* Text before hover */}
       <span

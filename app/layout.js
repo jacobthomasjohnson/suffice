@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
             <img src="/logo-s.png" alt="Suffice" className="h-[30px] relative z-30" />
           </div>
           <div className="nav flex items-center justify-center">
-            <div className={`relative z-30 w-[30px] h-[30px] hover:cursor-pointer flex items-center justify-center rounded-full outline-neutral-300 transition-all duration-75 opacity-90 hover:opacity-100 ${createModalOpen ? 'rotate-45' : 'rotate-0'}`} onClick={createPage}>
+            <div className={`fixed z-30 m-12 w-[30px] h-[30px] hover:cursor-pointer flex items-center justify-center rounded-full outline-neutral-300 transition-all duration-75 opacity-90 hover:opacity-100 ${createModalOpen ? 'rotate-45' : 'rotate-0'}`} onClick={createPage}>
               <Image
                 src="/icon-add.svg"
                 alt="notification"

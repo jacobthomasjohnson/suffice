@@ -6,12 +6,17 @@ import pageData from "./api/data/pageData";
 import recentActivity from "./api/data/recentActivity";
 import RecentActivity from "./components/ui/RecentActivity";
 import { useRef, useState, useEffect } from "react";
+import useStore from "./zustand/store";
 
 export const Dashboard = () => {
   const recentActivityExpand = useRef(null);
   const [recentActivityExpanded, setRecentActivityExpanded] = useState(false);
   const [recentActivityHeight, setRecentActivityHeight] = useState(0);
-
+  const createModalOpen = useStore((state) => state.createModalOpen);
+  const setCreateModalOpen = useStore((state) => state.setCreateModalOpen);
+  const createPage = () => {
+    setCreateModalOpen(!createModalOpen);
+  };
   useEffect(() => {
     if (recentActivityExpand.current) {
       setRecentActivityHeight(recentActivityExpand.current.scrollHeight);
@@ -42,7 +47,7 @@ export const Dashboard = () => {
       <hr />
       <h2>Quick Actions</h2>
       <div className="flex items-center gap-2 border-neutral-800">
-        <Button icon={`/icon-add.svg`}>Create a New Page</Button>
+        <Button icon={`/icon-add.svg`} onClick={createPage}>Create a New Page</Button>
         <Button icon={`/icon-search.svg`}>Find a Document</Button>
         <Button icon={`/icon-settings.svg`}>Modify a Setting</Button>
       </div>

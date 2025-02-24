@@ -104,11 +104,15 @@ u {
 }
 
 .button-group {
-  @apply flex border border-[#333333] w-full justify-between;
+  @apply flex border border-[#333333] rounded-2xl overflow-hidden w-full justify-between;
 }
 
 .button-group button {
-  @apply p-6 grow;
+  @apply p-6 grow border-y border-transparent transition-all duration-75;
+}
+
+.button-group button.is-active {
+  @apply border-y border-[#54cdd6];
 }
 
 .button-group button:hover {
@@ -137,6 +141,18 @@ u {
 
 .tiptap h5 {
   @apply text-4xl font-semibold my-4;
+}
+
+.tiptap blockquote {
+  @apply my-4 px-8 py-2 border-l;
+}
+
+.tiptap ul {
+
+}
+
+.tiptap li {
+  @apply list-disc pl-6;
 }
 
 .tiptap {
