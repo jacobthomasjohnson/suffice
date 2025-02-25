@@ -22,7 +22,7 @@ const MultiBlockEditor = () => {
         ...blocks,
         {
             id: "block-" + blocks.length + 1,
-            content: "<p>Block 3</p>",
+            content: "<p>Block " + (blocks.length + 1) + "</p>",
         }
     ])
   }
@@ -72,7 +72,7 @@ const MultiBlockEditor = () => {
                 />
               </SortableItem>
             ))}
-            <div className="w-full flex items-center justify-center my-2 rounded opacity-0 hover:opacity-80 cursor-pointer hover:bg-[#333333] p-4 transition-all duration-75" onClick={addBlock}>
+            <div className="w-full flex items-center justify-center my-2 rounded opacity-0 hover:opacity-55 cursor-pointer hover:bg-[#222222] p-4 transition-all duration-75" onClick={addBlock}>
               <Image
                 src="/icon-add.svg"
                 height={16}
