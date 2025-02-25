@@ -14,6 +14,11 @@ export const Dashboard = () => {
   const [recentActivityHeight, setRecentActivityHeight] = useState(0);
   const createModalOpen = useStore((state) => state.createModalOpen);
   const setCreateModalOpen = useStore((state) => state.setCreateModalOpen);
+  const searchOpen = useStore((state) => state.searchOpen);
+  const setSearchOpen = useStore((state) => state.setSearchOpen);
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+  }
   const createPage = () => {
     setCreateModalOpen(!createModalOpen);
   };
@@ -48,7 +53,7 @@ export const Dashboard = () => {
       <h2>Quick Actions</h2>
       <div className="flex items-center gap-2 border-neutral-800">
         <Button icon={`/icon-add.svg`} onClick={createPage}>Create a New Page</Button>
-        <Button icon={`/icon-search.svg`}>Find a Document</Button>
+        <Button icon={`/icon-search.svg`} onClick={toggleSearch}>Find a Document</Button>
         <Button icon={`/icon-settings.svg`}>Modify a Setting</Button>
       </div>
       <hr />

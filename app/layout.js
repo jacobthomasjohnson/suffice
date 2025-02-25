@@ -5,14 +5,22 @@ import Image from "next/image";
 import CreatePage from "./components/CreatePage";
 import useStore from "./zustand/store";
 import { useEffect } from "react";
+import HoverSearch from "./components/HoverSearch";
 
 export default function RootLayout({ children }) {
   const createModalOpen = useStore((state) => state.createModalOpen);
   const setCreateModalOpen = useStore((state) => state.setCreateModalOpen);
 
+  const searchOpen = useStore((state) => state.searchOpen);
+  const setSearchOpen = useStore((state) => state.setSearchOpen);
+
   const createPage = () => {
     setCreateModalOpen(!createModalOpen);
   };
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+  }
 
   useEffect(() => {
     document.body.style.overflow = createModalOpen ? "hidden" : "auto";
@@ -26,15 +34,13 @@ export default function RootLayout({ children }) {
       <body className="hide-scrollbar">
         {/* Modal overlay */}
         <div
-          className={`fixed z-20 transition-all duration-200 top-0 left-0 right-0 bottom-0 pointer-events-none ${
-            createModalOpen
-              ? "backdrop-blur-sm bg-[rgba(0,0,0,0.8)]"
-              : "backdrop-blur-0"
-          }`}
+          className={`fixed z-20 transition-all duration-200 top-0 left-0 right-0 bottom-0 pointer-events-none ${createModalOpen
+            ? "backdrop-blur-sm bg-[rgba(0,0,0,0.8)]"
+            : "backdrop-blur-0"
+            }`}
         ></div>
-
-        {/* The CreatePage modal with our multi-block editor */}
         <CreatePage />
+        <HoverSearch />
 
         <header className="navbar p-14 flex justify-between items-center">
           <div className="logo">
@@ -46,9 +52,8 @@ export default function RootLayout({ children }) {
           </div>
           <div className="nav flex items-center justify-center">
             <div
-              className={`fixed z-30 m-12 w-[30px] h-[30px] hover:cursor-pointer flex items-center justify-center rounded-full outline-neutral-300 transition-all duration-75 opacity-90 hover:opacity-100 ${
-                createModalOpen ? "rotate-45" : "rotate-0"
-              }`}
+              className={`fixed z-30 m-12 w-[30px] h-[30px] hover:cursor-pointer flex items-center justify-center rounded-full outline-neutral-300 transition-all duration-75 opacity-90 hover:opacity-100 ${createModalOpen ? "rotate-45" : "rotate-0"
+                }`}
               onClick={createPage}
             >
               <Image

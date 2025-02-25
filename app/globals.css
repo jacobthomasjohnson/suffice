@@ -218,3 +218,38 @@ body,
 .sortable-item {
   @apply  m-0 p-0 h-[48px];
 }
+
+.default-table {
+  @apply my-8
+}
+
+.default-table td {
+  @apply p-4;
+}
+
+.default-table tr {
+  @apply w-full border border-[#222222] border-t-0;
+}
+
+.default-table thead {
+  @apply bg-[#222222] border-t border-[#222222];
+}
+
+.table-link {
+}
+
+.table-link:hover {
+  @apply text-blue-400 underline cursor-pointer;
+}
+
+.comments-table td:nth-child(1) {
+  @apply w-2/3;
+}
+
+.comments-table td:nth-child(2) {
+  @apply w-1/6;
+}
+
+.comments-table td:nth-child(3) {
+  @apply w-1/6;
+}
