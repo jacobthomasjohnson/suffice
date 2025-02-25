@@ -6,6 +6,7 @@ import CreatePage from "./components/CreatePage";
 import useStore from "./zustand/store";
 import { useEffect } from "react";
 import HoverSearch from "./components/HoverSearch";
+import KeyBinds from "./components/KeyBinds";
 
 export default function RootLayout({ children }) {
   const createModalOpen = useStore((state) => state.createModalOpen);
@@ -35,12 +36,14 @@ export default function RootLayout({ children }) {
         {/* Modal overlay */}
         <div
           className={`fixed z-20 transition-all duration-200 top-0 left-0 right-0 bottom-0 pointer-events-none ${createModalOpen
-            ? "backdrop-blur-sm bg-[rgba(0,0,0,0.8)]"
+            ? "backdrop-blur-sm bg-[rgba(0,0,0,0.5)]"
             : "backdrop-blur-0"
             }`}
         ></div>
+        
         <CreatePage />
         <HoverSearch />
+        <KeyBinds />
 
         <header className="navbar p-14 flex justify-between items-center">
           <div className="logo">

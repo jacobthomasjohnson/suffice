@@ -253,3 +253,19 @@ body,
 .comments-table td:nth-child(3) {
   @apply w-1/6;
 }
+
+.table-keybinds {
+
+}
+
+.table-keybinds thead {
+  @apply bg-[#333333] rounded-lg;
+}
+
+.table-keybinds td {
+  @apply px-6 py-2;
+}
+
+.table-keybinds td {
+  text-align: left;
+}

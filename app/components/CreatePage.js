@@ -1,16 +1,30 @@
 "use client";
-import { useEffect } from "react";
+
 import useStore from "../zustand/store";
 import MultiBlockEditor from "./editor/MultiBlockEditor.js";
+import useKeyPress from "./hooks/useKeyPress";
 
 export const CreatePage = () => {
   const createModalOpen = useStore((state) => state.createModalOpen);
+  const setCreateModalOpen = useStore((state) => state.setCreateModalOpen);
+  const searchOpen = useStore((state) => state.searchOpen);
+  const setActiveModule = useStore((state) => state.setActiveModule);
 
-  useEffect(() => {
-    if (createModalOpen) {
-      document.body.scrollTop = 0;
-    }
-  }, [createModalOpen]);
+  useKeyPress(
+    (e) => {
+      if (e.key === "Escape" && createModalOpen) {
+        e.preventDefault();
+        setCreateModalOpen(false);
+        setActiveModule(null);
+      }
+      if (e.key === "n" && !createModalOpen && !searchOpen) {
+        e.preventDefault();
+        setCreateModalOpen(true);
+        setActiveModule("createPage");
+      }
+    },
+    ["createPage", null]
+  ); // Only listen when createPage or nothing is active
 
   return (
     <div
