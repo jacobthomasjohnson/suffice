@@ -8,11 +8,15 @@ export const HoverSearch = () => {
       const setSearchOpen = useStore((state) => state.setSearchOpen);
 
       useEffect(() => {
-            window.addEventListener('keydown', (e) => {
-                  if(e.key === "Escape") {
-                        setSearchOpen(!searchOpen);
-                  }
-            })
+            // const keyDowns = (e) => {
+            //       if(e.key === "Escape") {
+            //             setSearchOpen(false);
+            //       } else if(e.key === "Spacebar") {
+            //             setSearchOpen(true);
+            //       }
+            // }
+            // window.addEventListener('keydown', keyDowns);
+            // return window.removeEventListener(keyDowns);
       }, [])
 
       return (
